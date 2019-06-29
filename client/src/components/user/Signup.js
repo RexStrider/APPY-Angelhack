@@ -5,6 +5,7 @@ class Singup extends Component{
       Name: '',
       City: '',
       Email: '',
+      Password:'',
       Hometown:''
 
      }
@@ -54,6 +55,16 @@ class Singup extends Component{
            </Col>
 
          </Row>
+
+         <Row>
+          <Col>
+          <label>Password</label>
+         <input 
+              id="Password"
+              value={this.state.Password}
+              onChange= {this.handleInputChange} />
+              </Col>
+        </Row>
          
          <Row>
            <Col>
