@@ -1,15 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import Login from './components/Login';
-import Singup from'./components/Singup';
+// Import Components
+import Navbar from './components/navbar/navbar';
+import Login from './components/user/Login';
+import Signup from'./components/user/Signup';
+
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      <Singup/>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/signin" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
