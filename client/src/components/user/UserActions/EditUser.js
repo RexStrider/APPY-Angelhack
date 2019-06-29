@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { isAuthenticated } from "../../auth";
-import { read, update, updateUser } from "../userapi/apiUser";
+import { read, update, updateUser } from "../UserApi/apiUser";
 import { Redirect } from "react-router-dom";
-import Navbar from '../../navbar/Navbar';
-import DefaultProfile from "../../../assets/images/avatar.jpeg";
-import './EditProfile.css';
+import DefaultProfile from "../../../assets/images/avatar.png";
 
 
 class EditProfile extends Component {
@@ -197,7 +195,6 @@ class EditProfile extends Component {
 
         return (
             <div>
-                <Navbar />
                 <div className="container edit-page">
                 <h2 className="mt-5 mb-5">Edit Profile</h2>
                 <div

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { isAuthenticated } from "../../auth";
 import { Redirect, Link } from "react-router-dom";
-import { read } from "../userapi/apiUser";
+import { read } from "../UserApi/apiUser";
 import DefaultProfile from "../../../assets/images/avatar.png";
 import DeleteUser from "../UserActions/DeleteUser";
-import Navbar from '../../navbar/Navbar';
 
 
 class Profile extends Component {
@@ -50,7 +49,6 @@ class Profile extends Component {
 
         return (
             <div>
-                <Navbar />
                 <div className="container">
                     <h2 className="mt-5 mb-5" style={{ fontFamily: "Merienda, cursive"}}>User Profile</h2>
                     <div className="row">

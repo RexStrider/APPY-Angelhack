@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../../auth";
-import { remove } from "../userapi/apiUser";
+import { remove } from "../UserApi/apiUser";
 
 
 class DeleteUser extends Component {
