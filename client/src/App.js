@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,8 +10,12 @@ import Singup from'./components/Singup';
 function App() {
   return (
     <div className="App">
-      <Login />
-      <Singup/>
+      <BrowserRouter>
+        <section id='section'>
+          <Route exact path="/" component={Singup} />
+          <Route exact path="/login" component={Login} />
+        </section>
+      </BrowserRouter>
     </div>
   );
 }
