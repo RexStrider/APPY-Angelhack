@@ -34,6 +34,7 @@ class Profile extends Component {
 
     componentWillReceiveProps(props) {
         const userId = props.match.params.userId;
+        console.log(props.match.params.userId);
         this.init(userId);
     }
 
@@ -47,9 +48,9 @@ class Profile extends Component {
         //           user._id
         //       }?${new Date().getTime()}`
         //     : DefaultProfile;
-
-        console.log(user);
-        // console.log(user.name);
+        console.log(this.state.user);
+        console.log(this.state.user.location);
+        console.log(user.name);
 
         return(
             <h1>User page</h1>
