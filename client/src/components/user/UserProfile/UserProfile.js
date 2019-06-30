@@ -49,8 +49,8 @@ class Profile extends Component {
         //       }?${new Date().getTime()}`
         //     : DefaultProfile;
         console.log(this.state.user);
-        console.log(this.state.user.location);
-        console.log(user.name);
+        // console.log(this.state.user.location);
+        // console.log(user.name);
 
         return(
             <h1>User page</h1>

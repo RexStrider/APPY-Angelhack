@@ -10,7 +10,17 @@ export const read = (userId, token) => {
     })
         .then(response => {
             return response.json();
-            console.log(response);
+        })
+        .catch(err => console.log(err));
+};
+
+// list of users
+export const list = () => {
+    return fetch(`${process.env.REACT_APP_API_URL}/users`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
         })
         .catch(err => console.log(err));
 };

@@ -11,6 +11,7 @@ class Signin extends Component {
             email: "",
             password: "",
             error: "",
+            online: false,
             redirectToReferer: false,
             loading: false,
         };
@@ -37,13 +38,16 @@ class Signin extends Component {
             } else {
                 // authenticate
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true });
+                    this.setState({ 
+                        redirectToReferer: true,
+                        online: true
+                    });
                 });
             }
         });
     };
 
-    signinForm = (email, password, recaptcha) => (
+    signinForm = (email, password) => (
         <form>
             <div className="form-group">
                 <label>Email</label>

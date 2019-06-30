@@ -28,9 +28,8 @@ exports.allUsers = (req, res) => {
             });
         }
         res.json(users);
-    }).select("name email updated created role");
+    }).select("name email gender location choice1 choice2 choice3");
 };
-
 
 
 // Check Authorization
