@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Container, Col, Form, Button } from 'react-bootstrap'
 
 import { signup } from '../auth';
 
@@ -49,7 +49,7 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
-      <Container classname="Signup">
+      <Container className="Signup">
         <Form>
 
           <Form.Group as={Col}>
@@ -75,7 +75,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Basketball</Form.Label>
-            <div key='default-radio' classname='mb-3'>
+            <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -113,7 +113,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Music</Form.Label>
-            <div key='default-radio' classname='mb-3'>
+            <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -151,7 +151,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Hackathon</Form.Label>
-            <div key='default-radio' classname='mb-3'>
+            <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}

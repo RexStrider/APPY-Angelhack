@@ -9,7 +9,6 @@ const fs = require("fs");
 const cors = require("cors");
 const config = require('./config');
 
-
 // db
 // MONGO_URI=mongodb://localhost/nodeapi
 mongoose
