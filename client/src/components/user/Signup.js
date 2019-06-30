@@ -1,39 +1,125 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Link, Redirect } from "react-router-dom";
+import { signup } from '../auth';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+
+
+
 class Signup extends Component {
-  state = {
-    Name: '',
-    City: '',
-    Email: '',
-    Password: '',
-    Hometown: '',
-    Basketball: '',
-    Music: '',
-    Hackathon: ''
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      about: "",
+      gender: "",
+      location: "",
+      choice1: "",
+      choice2: "",
+      choice3: "",
+      error: "",
+      open: false,
+    }
   }
 
-  handleInputChange = event => {
-    const { id, value } = event.target;
-    this.setState({ [id]: value });
-
-
+  handleChange = name => event => {
+    this.setState({ error: "" });
+    this.setState({ [name]: event.target.value });
   };
 
-  clickHandler = () => {
-    console.log("click handdled");
+  radioChange1 = event => {
+    if (event.target.selected) {
+      this.setState({
+        choice1: event.target.value
+      })
+    }
   }
 
-  render() {
-    console.log(this.state);
-    return (
-      <Container className="Signup">
-        <Form>
+  clickHandler = event => {
+    event.preventDefault();
+    const { 
+      name, 
+      email, 
+      password, 
+      gender,
+      about,
+      location,
+      choice1,
+      choice2,
+      choice3
+    } = this.state;
 
+    // Create new user
+    const user = {
+      name, 
+      email, 
+      password, 
+      gender,
+      about,
+      location,
+      choice1,
+      choice2,
+      choice3
+    }
+
+    // signing up user
+    signup(user).then(data => {
+      if(data.error) {
+        this.setState({
+          error: data.error
+        });
+      } else {
+        this.state({
+          name: "",
+          email: "",
+          password: "",
+          about: "",
+          gender: "",
+          location: "",
+          choice1: "",
+          choice2: "",
+          choice3: "",
+          error: "",
+          open: true
+        });
+      };
+    });
+  };
+
+
+
+  render() {
+    const { name, email, password, error, open, location, choice1, choice2, choice3, about } = this.state;
+
+
+    return (
+      <Container className="Signup">  
+        <h2>Sign Up</h2>
+        {/* Failure Message */}
+        <div
+          className="alert alert-danger"
+          style={{ display: error ? "" : "none" }}
+        >
+            {error}
+        </div>
+        {/* Successful Message */}
+          <div
+              className="alert alert-info"
+              style={{ display: open ? "" : "none" }}
+            >
+              New account is successfully created. Please{" "}
+              <Link to="/">Sign In</Link>.
+           </div>
+        <Form>
           <Form.Group as={Col}>
             <Form.Label >Name</Form.Label>
-            <Form.Control id="Name" value={this.state.Name} onChange={this.handleInputChange} placeholder="Enter Name" />
+            <Form.Control 
+              id="Name" 
+              value={name} 
+              onChange={this.handleInputChange} 
+              placeholder="Enter Name" />
           </Form.Group>
-
           <Form.Group as={Col}>
             <Form.Label>City</Form.Label>
             <Form.Control id="City" value={this.state.City} onChange={this.handleInputChange} placeholder="Enter City" />
@@ -41,20 +127,32 @@ class Signup extends Component {
 
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control id="Email" value={this.state.Email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
+            <Form.Control 
+              id="Email" 
+              value={email} 
+              type="email" 
+              onChange={this.handleInputChange}
+              placeholder="Enter email" />
           </Form.Group>
-
 
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control id="Password" type="password" value={this.state.Password} onChange={this.handleInputChange} placeholder="Password" />
+            <Form.Control 
+              id="Password" 
+              type="password" 
+              value={password} 
+              onChange={this.handleInputChange} 
+              placeholder="Password" />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label>Hometown</Form.Label>
-            <Form.Control id="Hometown" value={this.state.Hometown} onChange={this.handleInputChange} placeholder="Enter Hometown" />
+            <Form.Label>Location</Form.Label>
+            <Form.Control 
+              id="Location" 
+              value={location} 
+              onChange={this.handleInputChange} 
+              placeholder="Enter Your Location" />
           </Form.Group>
-
 
           <Form.Group as={Col}>
             <Form.Label>How do you feel about Basketball?</Form.Label>
