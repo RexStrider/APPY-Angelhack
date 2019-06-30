@@ -58,88 +58,55 @@ class Profile extends Component {
 
     render() {
         const { redirectToSignin, user } = this.state;
-
         if (redirectToSignin) return <Redirect to="/signin" />;
 
-        // const photoUrl = user._id
-        //     ? `${process.env.REACT_APP_API_URL}/user/photo/${
-        //           user._id
-        //       }?${new Date().getTime()}`
-        //     : DefaultProfile;
-<<<<<<< HEAD
-        console.log(this.state.user);
-        // console.log(this.state.user.location);
-        // console.log(user.name);
-=======
->>>>>>> 26b3855f8e14539046ad19877bef6ef91ae76111
+        const photoUrl = user._id
+            ? `${process.env.REACT_APP_API_URL}/user/photo/${
+                  user._id
+              }?${new Date().getTime()}`
+            : DefaultProfile;
 
-        // console.log(this.state);
-        console.log(user);
+        return (
+            <div>
+                <div className="container">
+                    <h2 className="mt-5 mb-5" style={{ fontFamily: "Merienda, cursive"}}>User Profile</h2>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <img
+                                style={{ height: "200px", width: "auto", borderRadius: '50%' }}
+                                className="img-thumbnail"
+                                src={photoUrl}
+                                onError={i => (i.target.src = `${DefaultProfile}`)}
+                                alt={user.name}
+                            />
+                        </div>
 
-        // console.log(user.name);
-        // console.log(user.location);
-        // console.log(user.email);
-        // console.log(user.choice1);
-        // console.log(user.choice2);
-        // console.log(user.choice3);
-        // console.log(user.created);
+                        <div className="col-md-8">
+                            <div className="lead mt-2" style={{ letterSpacing: '2px'}}>
+                                <p>Hello <span className="page-brand">{user.name}</span></p>
+                                <p>Email: {user.email}</p>
+                                <p>{`Joined ${new Date(
+                                    user.created
+                                ).toDateString()}`}</p>
+                            </div>
 
-        return( 
-            <h1>User page</h1>
-        )
+                            {isAuthenticated().user &&
+                            isAuthenticated().user._id === user._id ? (
+                                <div className="d-inline-block">
+                                    <Link to={`/user/edit/${user._id}`}>
+                                        <button className="button button-green button-profile">
+                                            Edit Profile
+                                        </button>
+                                    </Link>
+                                    <DeleteUser userId={user._id} />
+                                </div>
+                            ) : 'No User Available!'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
-
-    // render() {
-    //     const { redirectToSignin, user } = this.state;
-    //     if (redirectToSignin) return <Redirect to="/signin" />;
-
-    //     const photoUrl = user._id
-    //         ? `${process.env.REACT_APP_API_URL}/user/photo/${
-    //               user._id
-    //           }?${new Date().getTime()}`
-    //         : DefaultProfile;
-
-    //     return (
-    //         <div>
-    //             <div className="container">
-    //                 <h2 className="mt-5 mb-5" style={{ fontFamily: "Merienda, cursive"}}>User Profile</h2>
-    //                 <div className="row">
-    //                     <div className="col-md-4">
-    //                         <img
-    //                             style={{ height: "200px", width: "auto", borderRadius: '50%' }}
-    //                             className="img-thumbnail"
-    //                             src={photoUrl}
-    //                             onError={i => (i.target.src = `${DefaultProfile}`)}
-    //                             alt={user.name}
-    //                         />
-    //                     </div>
-
-    //                     <div className="col-md-8">
-    //                         <div className="lead mt-2" style={{ letterSpacing: '2px'}}>
-    //                             <p>Hello <span className="page-brand">{user.name}</span></p>
-    //                             <p>Email: {user.email}</p>
-    //                             <p>{`Joined ${new Date(
-    //                                 user.created
-    //                             ).toDateString()}`}</p>
-    //                         </div>
-
-    //                         {isAuthenticated().user &&
-    //                         isAuthenticated().user._id === user._id ? (
-    //                             <div className="d-inline-block">
-    //                                 <Link to={`/user/edit/${user._id}`}>
-    //                                     <button className="button button-green button-profile">
-    //                                         Edit Profile
-    //                                     </button>
-    //                                 </Link>
-    //                                 <DeleteUser userId={user._id} />
-    //                             </div>
-    //                         ) : 'No User Available!'}
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     );
-    // }
 }
 
 export default Profile;

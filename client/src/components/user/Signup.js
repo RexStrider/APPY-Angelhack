@@ -53,33 +53,34 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
-      <Container className="Signup">
+      <Container className="Signup auth-page">
         <Form>
-
+          <h2>Sign Up</h2>
+          <small style={{ letterSpacing: '.3rem'}}>*Hey, you are one step away from joining Appy community</small>
           <Form.Group as={Col}>
             <Form.Label >Name</Form.Label>
-            <Form.Control name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="Enter name" />
+            <Form.Control name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="your name" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Location</Form.Label>
-            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="Enter location" />
+            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="your location" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="email" value={this.state.email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
+            <Form.Control name="email" value={this.state.email} type="email" onChange={this.handleInputChange} placeholder="your email" />
           </Form.Group>
 
 
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="password" />
+            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="your password" />
           </Form.Group>
 
           <Form.Group as={Col}>
           <Form.Label>About</Form.Label>
-            <Form.Control name="about" as="textarea" rows="3" type="text" value={this.state.about} onChange={this.handleInputChange} placeholder="tell us about yourself" />
+            <Form.Control name="about" as="textarea" rows="3" type="text" value={this.state.about} onChange={this.handleInputChange} placeholder="share with us about yourself" />
           </Form.Group>
 
           <Form.Group>
@@ -105,7 +106,7 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Basketball</Form.Label>
+            <Form.Label>Do you like Basketball?</Form.Label>
             <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
@@ -143,7 +144,7 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Music</Form.Label>
+            <Form.Label>What is a definition of Music to you?</Form.Label>
             <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
@@ -181,7 +182,7 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Hackathon</Form.Label>
+            <Form.Label>Hackathon?</Form.Label>
             <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
