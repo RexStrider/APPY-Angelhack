@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
+=======
+import { Container, Col, Form, Button } from 'react-bootstrap'
+
+>>>>>>> dbcec5a3b835fbbfd673d34c35929184d661660d
 import { signup } from '../auth';
 
 class Signup extends Component {
@@ -51,7 +56,7 @@ class Signup extends Component {
 
 
     return (
-      <Container classname="Signup">
+      <Container className="Signup">
         <Form>
           {/* Failure Message */}
             <div
@@ -94,7 +99,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Basketball</Form.Label>
-            <div key='default-radio' classname='mb-3'>
+            <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -140,7 +145,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Music</Form.Label>
-            <div key='default-radio' classname='mb-3'>
+            <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -186,7 +191,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Hackathon</Form.Label>
-            <div key='default-radio' classname='mb-3'>
+            <div key='default-radio' className='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
