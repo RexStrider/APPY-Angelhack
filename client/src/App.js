@@ -5,8 +5,10 @@ import './App.css';
 
 // Import Components
 import Navbar from './components/navbar/navbar';
+import Home from './components/home/Home';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
+import Comnav from'./components/home/Comnav';
 import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
 import ResetPassword from "./components/user/PasswordReset/ResetPassword";
 import Profile from './components/user/UserProfile/UserProfile';
@@ -19,10 +21,10 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/forgot-password" component={ForgotPassword} />
-          <Route
                   exact
                   path="/reset-password/:resetPasswordToken"
                   component={ResetPassword}

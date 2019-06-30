@@ -55,6 +55,7 @@ const Navbar = ({history}) => (
                 </>
             )}
         </ul>
+    
     </div>
     </>
 )
