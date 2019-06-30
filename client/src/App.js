@@ -13,6 +13,7 @@ import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
 import ResetPassword from "./components/user/PasswordReset/ResetPassword";
 import Profile from './components/user/UserProfile/UserProfile';
 import EditProfile from './components/user/UserActions/EditUser';
+import Geolocate from './components/algorithms/Geolocate';
 import Users from '../src/components/matching/matching'  ;
 
 
@@ -37,6 +38,11 @@ function App() {
                   path="/reset-password/:resetPasswordToken"
                   component={ResetPassword}
             />
+          <Route
+                  exact
+                  path="/geolocate"
+                  component={Geolocate}
+          />
           {/* Private Route */}
           <PrivateRoute exact path="/user/:userId" component={Profile} />
           <PrivateRoute
