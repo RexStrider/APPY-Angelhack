@@ -123,7 +123,6 @@ exports.forgotPassword = (req, res) => {
 // user model's resetPasswordLink's value must match the token
 // if the user's resetPasswordLink(token) matches the incoming req.body.resetPasswordLink(token)
 // then we got the right user
-
 exports.resetPassword = (req, res) => {
     const { resetPasswordLink, newPassword } = req.body;
 
