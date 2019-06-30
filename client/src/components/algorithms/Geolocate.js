@@ -39,8 +39,6 @@ class Geolocate extends React.Component {
     }
 }
 
-
-
 Geolocate.propTypes = Object.assign({}, Geolocate.propTypes, geoPropTypes);
 
 export default geolocated({
@@ -50,13 +48,19 @@ export default geolocated({
     userDecisionTimeout: 5000,
 })(Geolocate);
 
+var options = {
+    enableHighAccuracy: true,
+    timeout: 240000
+};
+
+function showError(error) {
+    console.log(error);
+}
 
 window.setInterval(
     function(){
-        navigator.geolocation.getCurrentPosition(display);
+        navigator.geolocation.getCurrentPosition(display, showError, options);
     }, 1000);
-
-
 
 // https://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
 Number.prototype.toRad = function() {
@@ -64,12 +68,12 @@ Number.prototype.toRad = function() {
 }
 
 let haversine = (currentLat, currentLon, initLat, initLon)=> {
-    var initLat = 42.741; 
-    var initLon = -71.3161; 
-    var currentLat = 42.806911; 
-    var currentLon = -71.290611; 
-    
-    var R = 3958.756;
+    // var initLat = 41.029560; // For testing
+    // var initLon = -74.636993;
+    // var currentLat = 33.660580;
+    // var currentLon = -117.825890; 
+
+    var R = 20996043.307; // Feet
 
     var x1 = initLat-currentLat;
     var deltaLat = x1.toRad();
@@ -84,10 +88,7 @@ let haversine = (currentLat, currentLon, initLat, initLon)=> {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 
     return R * c;
-
 }
-
-haversine();
 
 var stationaryLatitude = 0.0;
 var stationaryLongitude = 0.0;
@@ -96,6 +97,7 @@ var currentLongitude = 0.0;
 var isStationary = false;
 
 function display(position) {
+
     currentLatitude = position.coords.latitude;
     currentLongitude = position.coords.longitude;
 
@@ -103,7 +105,13 @@ function display(position) {
         stationaryLatitude = currentLatitude;
         stationaryLongitude = currentLongitude;
         isStationary = true;
+        console.log("Only once");
     }
     
-    console.log(haversine(currentLongitude, currentLongitude, currentLatitude, currentLongitude));
+    console.log("Current Lat: " + currentLatitude);
+    console.log("Current Lon: " + currentLongitude);
+    console.log("Stat Lat: " + stationaryLatitude);
+    console.log("Stat Lon: " + stationaryLongitude);
+
+    console.log(haversine(currentLatitude, currentLongitude, stationaryLatitude, stationaryLongitude));
 }
