@@ -23,6 +23,7 @@ class Profile extends Component {
                 choice3: '',
                 about: '',
                 gender: '',
+                online: false,
                 _v: '',
                 _id: '',
                 created: ''
@@ -46,6 +47,7 @@ class Profile extends Component {
     componentDidMount() {
         const userId = this.props.match.params.userId;
         this.init(userId);
+        this.setState({ online: true });
     }
 
     componentWillReceiveProps(props) {

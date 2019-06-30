@@ -17,7 +17,8 @@ class Signup extends Component {
       choice2: '',
       choice3: '',
       error: '',
-      open: false
+      open: false,
+      online: false
     }
   }
   
@@ -41,7 +42,8 @@ class Signup extends Component {
       location: this.state.location,
       choice1: this.state.choice1,
       choice2: this.state.choice2,
-      choice3: this.state.choice3
+      choice3: this.state.choice3,
+      online: this.state.online
     }
 
     signup(user);
