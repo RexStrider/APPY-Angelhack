@@ -4,7 +4,7 @@ import PrivateRoute from './components/auth/PrivateRoute';
 import './App.css';
 
 // Import Components
-import Navbar from './components/navbar/Navbar';
+import Navbar from './components/navbar/navbar';
 import Home from './components/home/Home';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
