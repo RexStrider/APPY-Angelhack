@@ -4,11 +4,13 @@ class Signup extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      Name: '',
-      City: '',
-      Email: '',
-      Password: '',
-      Hometown: '',
+      name: '',
+      city: '',
+      email: '',
+      password: '',
+      gender: '',
+      about: '',
+      location: '',
       choice1: '',
       choice2: '',
       choice3: '',
@@ -30,38 +32,38 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
-      <Container className="Signup">
+      <Container classname="Signup">
         <Form>
 
           <Form.Group as={Col}>
             <Form.Label >Name</Form.Label>
-            <Form.Control name="Name" value={this.state.Name} onChange={this.handleInputChange} placeholder="Enter Name" />
+            <Form.Control name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="Enter name" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>City</Form.Label>
-            <Form.Control name="City" value={this.state.City} onChange={this.handleInputChange} placeholder="Enter City" />
+            <Form.Control name="city" value={this.state.city} onChange={this.handleInputChange} placeholder="Enter city" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="Email" value={this.state.Email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
+            <Form.Control name="email" value={this.state.email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
           </Form.Group>
 
 
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control name="Password" type="password" value={this.state.Password} onChange={this.handleInputChange} placeholder="Password" />
+            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="password" />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label>Hometown</Form.Label>
-            <Form.Control name="Hometown" value={this.state.Hometown} onChange={this.handleInputChange} placeholder="Enter Hometown" />
+            <Form.Label>Location</Form.Label>
+            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="Enter location" />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Basketball</Form.Label>
-            <div key='default-radio' className='mb-3'>
+            <div key='default-radio' classname='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -99,7 +101,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Music</Form.Label>
-            <div key='default-radio' className='mb-3'>
+            <div key='default-radio' classname='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -137,7 +139,7 @@ class Signup extends Component {
 
           <Form.Group>
             <Form.Label>Hackathon</Form.Label>
-            <div key='default-radio' className='mb-3'>
+            <div key='default-radio' classname='mb-3'>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
