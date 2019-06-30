@@ -105,14 +105,8 @@ class Signup extends Component {
             </div>
           </Form.Group>
 
-<<<<<<< HEAD
-       
-           <Form.Group >
-            <Form.Label> What do you think about Basketball?</Form.Label>
-=======
           <Form.Group>
             <Form.Label>Do you like Basketball?</Form.Label>
->>>>>>> 4981d5f802df86da3cbd6ace4a49484144db64e4
             <div key='default-radio' className='mb-3'>
             <Col sm={12}>
               <Form.Check 
@@ -154,11 +148,11 @@ class Signup extends Component {
          
           
           <Form.Group>
-<<<<<<< HEAD
+
             <Form.Label>What is your view on Music?</Form.Label>
-=======
+
             <Form.Label>What is a definition of Music to you?</Form.Label>
->>>>>>> 4981d5f802df86da3cbd6ace4a49484144db64e4
+
             <div key='default-radio' className='mb-3'>
             <Col sm={12}>
               <Form.Check 
@@ -198,11 +192,7 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group>
-<<<<<<< HEAD
-            <Form.Label>How about Hackathon?</Form.Label>
-=======
             <Form.Label>Hackathon?</Form.Label>
->>>>>>> 4981d5f802df86da3cbd6ace4a49484144db64e4
             <div key='default-radio' className='mb-3'>
             <Col sm={12}>
               <Form.Check 
