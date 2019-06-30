@@ -1,5 +1,6 @@
 .auth-page {
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .auth-page button {
@@ -36,4 +37,14 @@
 
 .form-group label {
     text-align: left !important;
+}
+
+.auth-page .form-label {
+    margin: 1.5rem 0 1rem 0;
+    letter-spacing: .2rem;
+}
+
+.auth-page .form-check-label {
+    letter-spacing: .1rem;
+    padding-left: .5rem;
 }

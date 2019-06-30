@@ -11,6 +11,7 @@ class Signin extends Component {
             email: "",
             password: "",
             error: "",
+            online: false,
             redirectToReferer: false,
             loading: false,
         };
@@ -37,16 +38,19 @@ class Signin extends Component {
             } else {
                 // authenticate
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true });
+                    this.setState({ 
+                        redirectToReferer: true,
+                        online: true
+                    });
                 });
             }
         });
     };
 
-    signinForm = (email, password, recaptcha) => (
+    signinForm = (email, password) => (
         <form>
             <div className="form-group">
-                <label>Email</label>
+                <label className="form-label">Email</label>
                 <input
                     onChange={this.handleChange("email")}
                     type="email"
@@ -85,9 +89,11 @@ class Signin extends Component {
             return <Redirect to="/" />;
         }
 
+
         return (
             <div className="container signin-page auth-page">
                 <h2 className="signin-title">Sign In</h2>
+                <small style={{ letterSpacing: '.3rem'}}>*Sign in your account today and connect with other people</small>
                 <br />
                 <div
                     className="alert alert-danger"

@@ -16,7 +16,7 @@ const router = express.Router();
 
 
 // User Info
-router.get("/matching", allUsers);
+router.get("/users", allUsers);
 router.get("/user/:userId", requireSignin, getUser);
 router.put("/user/:userId", requireSignin, hasAuthorization, updateUser);
 router.delete("/user/:userId", requireSignin, hasAuthorization, deleteUser);

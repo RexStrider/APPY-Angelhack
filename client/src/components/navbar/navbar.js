@@ -26,10 +26,10 @@ const Navbar = ({history}) => (
         <span className="navbar-toggler-icon icon-bar"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav ml-auto">
             {isAuthenticated() ? (
                 <>
-                <div className="nav ml-auto">
+                <div className="nav">
                     <li className="nav-item">
                         <NavLink
                             to={`/user/${isAuthenticated().user._id}`}

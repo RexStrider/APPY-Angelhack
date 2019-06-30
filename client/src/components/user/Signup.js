@@ -17,7 +17,8 @@ class Signup extends Component {
       choice2: '',
       choice3: '',
       error: '',
-      open: false
+      open: false,
+      online: false
     }
   }
   
@@ -41,7 +42,8 @@ class Signup extends Component {
       location: this.state.location,
       choice1: this.state.choice1,
       choice2: this.state.choice2,
-      choice3: this.state.choice3
+      choice3: this.state.choice3,
+      online: this.state.online
     }
 
     signup(user);
@@ -51,33 +53,66 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
-      <Container className="Signup">
+      <Container className="Signup auth-page">
         <Form>
-
+          <h2>Sign Up</h2>
+          <small style={{ letterSpacing: '.3rem'}}>*Hey, you are one step away from joining Appy community</small>
           <Form.Group as={Col}>
             <Form.Label >Name</Form.Label>
-            <Form.Control name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="Enter name" />
+            <Form.Control name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="your name" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Location</Form.Label>
-            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="Enter location" />
+            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="your location" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="email" value={this.state.email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
+            <Form.Control name="email" value={this.state.email} type="email" onChange={this.handleInputChange} placeholder="your email" />
           </Form.Group>
 
 
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="password" />
+            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="your password" />
           </Form.Group>
 
+          <Form.Group as={Col}>
+          <Form.Label>About</Form.Label>
+            <Form.Control name="about" as="textarea" rows="3" type="text" value={this.state.about} onChange={this.handleInputChange} placeholder="share with us about yourself" />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Gender</Form.Label>
+            <div key='default-radio' className='mb-3'>
+              <Form.Check 
+                type='radio'
+                id={`default-radio-1`}
+                label='Male'
+                name="gender"
+                onClick={this.handleInputChange}
+                value='male'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-2`}
+                label='Female'
+                name="gender"
+                onClick={this.handleInputChange}
+                value='female'
+              />
+            </div>
+          </Form.Group>
+
+<<<<<<< HEAD
        
            <Form.Group >
             <Form.Label> What do you think about Basketball?</Form.Label>
+=======
+          <Form.Group>
+            <Form.Label>Do you like Basketball?</Form.Label>
+>>>>>>> 4981d5f802df86da3cbd6ace4a49484144db64e4
             <div key='default-radio' className='mb-3'>
             <Col sm={12}>
               <Form.Check 
@@ -119,7 +154,11 @@ class Signup extends Component {
          
           
           <Form.Group>
+<<<<<<< HEAD
             <Form.Label>What is your view on Music?</Form.Label>
+=======
+            <Form.Label>What is a definition of Music to you?</Form.Label>
+>>>>>>> 4981d5f802df86da3cbd6ace4a49484144db64e4
             <div key='default-radio' className='mb-3'>
             <Col sm={12}>
               <Form.Check 
@@ -159,7 +198,11 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group>
+<<<<<<< HEAD
             <Form.Label>How about Hackathon?</Form.Label>
+=======
+            <Form.Label>Hackathon?</Form.Label>
+>>>>>>> 4981d5f802df86da3cbd6ace4a49484144db64e4
             <div key='default-radio' className='mb-3'>
             <Col sm={12}>
               <Form.Check 

@@ -13,6 +13,7 @@ import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
 import ResetPassword from "./components/user/PasswordReset/ResetPassword";
 import Profile from './components/user/UserProfile/UserProfile';
 import EditProfile from './components/user/UserActions/EditUser';
+import Users from '../src/components/matching/matching'  ;
 
 
 
@@ -27,6 +28,11 @@ function App() {
           <Route exact path="/signin" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/forgot-password" component={ForgotPassword} />
+
+
+          <Route exact path="/matching" component={Users} />
+          <Route
+
                   exact
                   path="/reset-password/:resetPasswordToken"
                   component={ResetPassword}
