@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Login.css';
 
+import { signin } from '../auth';
+
 class Login extends Component {
 
     state = {
-        username: '',
+        email: '',
         password: ''
     }
 
     handleInputChange = event => {
-        const { id, value } = event.target;
-        this.setState({ [id]: value });
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
     }
 
-    clickHandler = () => {
-        console.log('click handled');
+    clickHandler = event => {
+        event.preventDefault();
+        // console.log('click handled');
+
+        signin(this.state);
     }
 
 
@@ -25,23 +30,36 @@ class Login extends Component {
             <Container className='login'>
                 <Form>
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            name="email"
+                            value={this.state.username}
+                            onChange={this.handleInputChange}
+                            placeholder="Enter email" />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
-    </Form.Text>
+                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control
+                        type="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        placeholder="Enter password" />
                     </Form.Group>
                     <Form.Group controlId="formBasicChecbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button
+                    variant="primary"
+                    type="submit"
+                    onClick={this.clickHandler}>
                         Submit
-  </Button>
+                    </Button>
                 </Form>
 
 

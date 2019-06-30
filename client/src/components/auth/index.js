@@ -1,6 +1,5 @@
 // Sign Up Action
 export const signup = user => {
-    /*`${process.env.REACT_APP_API_URL}/signup`*/
     return fetch(`${process.env.REACT_APP_API_URL}/signup`, {
         method: "POST",
         headers: {
@@ -31,6 +30,10 @@ export const signin = user => {
     })
         .then(response => {
             return response.json();
+        })
+        .then(data => {
+            console.log(JSON.stringify(data));
+            return data;
         })
         .catch(err => console.log(err));
 };
