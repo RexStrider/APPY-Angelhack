@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../../auth";
 import { remove } from "../UserApi/apiUser";
+import './DeleteUser.css';
 
 
 class DeleteUser extends Component {
@@ -42,7 +43,7 @@ class DeleteUser extends Component {
         return (
             <button
                 onClick={this.deleteConfirmed}
-                className="button button-danger button-profile"
+                className="button button-profile"
             >
                 Delete Profile
             </button>

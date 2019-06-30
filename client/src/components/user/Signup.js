@@ -1,106 +1,239 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Container, Col, Form, Button } from 'react-bootstrap'
+
+import { signup } from '../auth';
+
 class Signup extends Component {
-  state = {
-    Name: '',
-    City: '',
-    Email: '',
-    Password: '',
-    Hometown: '',
-    Basketball: '',
-    Music: '',
-    Hackathon: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      gender: '',
+      about: '',
+      location: '',
+      choice1: '',
+      choice2: '',
+      choice3: '',
+      error: '',
+      open: false,
+      online: false
+    }
   }
+  
 
   handleInputChange = event => {
-    const { id, value } = event.target;
-    this.setState({ [id]: value });
+    console.log(event.target);
 
-
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
-  clickHandler = () => {
-    console.log("click handdled");
+  clickHandler = event => {
+    event.preventDefault();
+    
+    const user = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      gender: this.state.gender,
+      about: this.state.about,
+      location: this.state.location,
+      choice1: this.state.choice1,
+      choice2: this.state.choice2,
+      choice3: this.state.choice3,
+      online: this.state.online
+    }
+
+    signup(user);
+
   }
 
   render() {
     console.log(this.state);
     return (
-      <Container className="Signup">
+      <Container className="Signup auth-page">
         <Form>
-
+          <h2>Sign Up</h2>
+          <small style={{ letterSpacing: '.3rem'}}>*Hey, you are one step away from joining Appy community</small>
           <Form.Group as={Col}>
             <Form.Label >Name</Form.Label>
-            <Form.Control id="Name" value={this.state.Name} onChange={this.handleInputChange} placeholder="Enter Name" />
+            <Form.Control name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="your name" />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label>City</Form.Label>
-            <Form.Control id="City" value={this.state.City} onChange={this.handleInputChange} placeholder="Enter City" />
+            <Form.Label>Location</Form.Label>
+            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="your location" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control id="Email" value={this.state.Email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
+            <Form.Control name="email" value={this.state.email} type="email" onChange={this.handleInputChange} placeholder="your email" />
           </Form.Group>
 
 
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control id="Password" type="password" value={this.state.Password} onChange={this.handleInputChange} placeholder="Password" />
+            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="your password" />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label>Hometown</Form.Label>
-            <Form.Control id="Hometown" value={this.state.Hometown} onChange={this.handleInputChange} placeholder="Enter Hometown" />
+          <Form.Label>About</Form.Label>
+            <Form.Control name="about" as="textarea" rows="3" type="text" value={this.state.about} onChange={this.handleInputChange} placeholder="share with us about yourself" />
           </Form.Group>
 
-
-          <Form.Group as={Col}>
-            <Form.Label>How do you feel about Basketball?</Form.Label>
-              <div className="choice-group">
-                <p>
-                <input 
-                  type="radio" 
-                  name="basket-choice-1" 
-                  value="1" /> My eyes are glued to the game on TV
-                </p>
-                <p>
-                <input 
-                  type="radio" 
-                  name="basket-choice-1" 
-                  value="2" /> My eyes are glued to the game on TV
-                </p>
-                <p>
-                <input 
-                  type="radio" 
-                  name="basket-choice-1" 
-                  value="3" /> My eyes are glued to the game on TV
-                </p>
-                <p>
-                <input 
-                  type="radio" 
-                  name="basket-choice-1" 
-                  value="4" /> My eyes are glued to the game on TV
-                </p>
-              </div>
+          <Form.Group>
+            <Form.Label>Gender</Form.Label>
+            <div key='default-radio' className='mb-3'>
+              <Form.Check 
+                type='radio'
+                id={`default-radio-1`}
+                label='Male'
+                name="gender"
+                onClick={this.handleInputChange}
+                value='male'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-2`}
+                label='Female'
+                name="gender"
+                onClick={this.handleInputChange}
+                value='female'
+              />
+            </div>
           </Form.Group>
 
-          <Form.Group as={Col}>
-
-            <Form.Label>Tell us about your favorite type of music.</Form.Label>
-            <Form.Control type='text' id="Music" value={this.state.Music} onChange={this.handleInputChange}/>
+          <Form.Group>
+            <Form.Label>Do you like Basketball?</Form.Label>
+            <div key='default-radio' className='mb-3'>
+            <Col sm={12}>
+              <Form.Check 
+                type='radio'
+                id={`default-radio-1`}
+                label='My eyes are glued to the TV'
+                name="choice1"
+                onClick={this.handleInputChange}
+                value='My eyes are glued to the TV'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-2`}
+                label='Have to get me off the court'
+                name="choice1"
+                onClick={this.handleInputChange}
+                value='Have to get me off the court'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-3`}
+                label='College basketball is the best'
+                name="choice1"
+                onClick={this.handleInputChange}
+                value='College basketball is the best'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-4`}
+                label='NBA all the way'
+                name="choice1"
+                onClick={this.handleInputChange}
+                value='NBA all the way'
+              />
+              </Col>
+            </div>
           </Form.Group>
 
-          <Form.Group as={Col}>
+         
+          
+          <Form.Group>
 
-            <Form.Label> What are your thoughts on Hackathons? </Form.Label>
-            <Form.Control type='text' id="Hackathon" value={this.state.Hackathon} onChange={this.handleInputChange}/>
+            <Form.Label>What is your view on Music?</Form.Label>
+
+            <Form.Label>What is a definition of Music to you?</Form.Label>
+
+            <div key='default-radio' className='mb-3'>
+            <Col sm={12}>
+              <Form.Check 
+                type='radio'
+                id={`default-radio-1`}
+                label='Local music rocks'
+                name="choice2"
+                onClick={this.handleInputChange}
+                value='Local music rocks'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-2`}
+                label='Music is life'
+                name="choice2"
+                onClick={this.handleInputChange}
+                value='Music is life'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-3`}
+                label='Music is an escape'
+                name="choice2"
+                onClick={this.handleInputChange}
+                value='Music is an escape'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-4`}
+                label='Jamming out is the shit'
+                name="choice2"
+                onClick={this.handleInputChange}
+                value='Jamming out is the shit'
+              />
+              </Col>
+            </div>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Hackathon?</Form.Label>
+            <div key='default-radio' className='mb-3'>
+            <Col sm={12}>
+              <Form.Check 
+                type='radio'
+                id={`default-radio-1`}
+                label='Only Angelhack'
+                name="choice3"
+                onClick={this.handleInputChange}
+                value='Only Angelhack'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-2`}
+                label="Free food... I'm in"
+                name="choice3"
+                onClick={this.handleInputChange}
+                value="Free food... I'm in"
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-3`}
+                label='Sabeen rocks'
+                name="choice3"
+                onClick={this.handleInputChange}
+                value='Sabeen rocks'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-4`}
+                label='Gotta work on my catching'
+                name="choice3"
+                onClick={this.handleInputChange}
+                value='Gotta work on my catching'
+              />
+              </Col>
+            </div>
           </Form.Group>
 
           <Button variant="primary" type="submit" onClick={this.clickHandler}>
             Submit
-  </Button>
+          </Button>
 
         </Form>
 

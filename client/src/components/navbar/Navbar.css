@@ -1,0 +1,24 @@
+.navbar {
+    background-image: linear-gradient(
+        to right,
+        #ad5389,
+        #3c1053
+    );
+    color: white;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border: 1px solid #fff;
+}
+
+.icon-bar {
+    background-color: white !important;
+    height: .1rem;
+    display: block;
+    margin: .4rem 0;
+}

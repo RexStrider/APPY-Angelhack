@@ -1,0 +1,50 @@
+.auth-page {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.auth-page button {
+    padding: 1rem 4rem;
+    border-radius: .5rem;
+    background-image: linear-gradient(
+        to right,
+        #ad5389,
+        #3c1053
+    );
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    transition: .8s;
+}
+
+.auth-page button:hover {
+    transform: scale(1.1);
+    color: transparent !important;
+    background-image: linear-gradient(
+        to right,
+        #ad5389,
+        #3c1053
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    display: inline-block;
+}
+
+.auth-page h2 {
+    letter-spacing: .3rem;
+}
+
+.form-group label {
+    text-align: left !important;
+}
+
+.auth-page .form-label {
+    margin: 1.5rem 0 1rem 0;
+    letter-spacing: .2rem;
+}
+
+.auth-page .form-check-label {
+    letter-spacing: .1rem;
+    padding-left: .5rem;
+}

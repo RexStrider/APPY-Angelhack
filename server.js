@@ -9,7 +9,6 @@ const fs = require("fs");
 const cors = require("cors");
 const config = require('./config');
 
-
 // db
 // MONGO_URI=mongodb://localhost/nodeapi
 mongoose
@@ -38,6 +37,7 @@ app.get("/api", (req, res) => {
 // Middleware
 app.use(morgan("dev"));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());

@@ -17,7 +17,8 @@ exports.signup = async (req, res) => {
         });
     const user = await new User(req.body);
     await user.save();
-    res.status(200).json({ message: "Signup success! Please login." });
+    // res.status(200).json({ message: "Signup success! Please login." });
+    res.json({ message: "Signup success! Please login." });
 };
 
 
@@ -48,8 +49,8 @@ exports.signin = (req, res) => {
         // persist the token as 't' in cookie with expiry date
         res.cookie("t", token, { expire: new Date() + 9999 });
         // retrun response with user and token to frontend client
-        const { _id, name, email, role } = user;
-        return res.json({ token, user: { _id, email, name, role } });
+        const { _id, name, email, online } = user;
+        return res.json({ token, user: { _id, email, name, online } });
     });
 };
 

@@ -11,6 +11,10 @@ export const signup = user => {
         .then(response => {
             return response.json();
         })
+        .then(data => {
+            console.log(JSON.stringify(data));
+            return data;
+        })
         .catch(err => console.log(err));
 };
 
@@ -26,6 +30,10 @@ export const signin = user => {
     })
         .then(response => {
             return response.json();
+        })
+        .then(data => {
+            console.log(JSON.stringify(data));
+            return data;
         })
         .catch(err => console.log(err));
 };

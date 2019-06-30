@@ -1,0 +1,33 @@
+.button-profile {
+    padding: 1rem 2.5rem;
+    letter-spacing: .2rem;
+    background-color: red;
+    color: #fff;
+    border-radius: .2rem;
+    transition: 1s;
+    border: 1px solid #fff;
+}
+
+.button-profile:hover {
+    background-color: #fff;
+    color: red;
+    transform: scale(1.2);
+    border: 1px solid #fff;
+}
+
+.button-edit {
+    padding: 1rem 2.5rem;
+    letter-spacing: .2rem;
+    background-color: blue;
+    color: #fff;
+    border-radius: .2rem;
+    transition: 1s;
+    border: 1px solid #fff;
+}
+
+.button-edit:hover {
+    background-color: #fff;
+    color: blue;
+    transform: scale(1.2);
+    border: 1px solid #fff;
+}

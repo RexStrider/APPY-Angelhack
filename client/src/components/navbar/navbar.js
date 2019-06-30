@@ -1,39 +1,35 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
+import './Navbar.css';
 
 
 const Navbar = ({history}) => (
-    <>
+    <nav className="navbar navbar-expand-lg">
     <div className="navbar-top">
-        <h1 className="page-brand navbar-title">
+        <Link 
+            to="/"
+            className="page-brand navbar-title">
             Appy-Angelhack
-        </h1>
+        </Link>
     </div>
-    <div className="nav-bar">
-        <ul className="nav nav-tabs bg-outline">
-            <li className="nav-item">
-                <NavLink 
-                    to="/signin"
-                    className="nav-link"
-                    activeClassName='is-active'
-                >
-                    Login
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink 
-                    to="/signup"
-                    className="nav-link"
-                    activeClassName='is-active'
-                >
-                    Sign Up
-                </NavLink>
-            </li>
-
-            {isAuthenticated() && (
+    <button 
+        className="navbar-toggler" 
+            type="button" 
+            data-toggle="collapse" 
+            data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon icon-bar"></span>
+        <span className="navbar-toggler-icon icon-bar"></span>
+        <span className="navbar-toggler-icon icon-bar"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav ml-auto">
+            {isAuthenticated() ? (
                 <>
-                <div className="nav ml-auto">
+                <div className="nav">
                     <li className="nav-item">
                         <NavLink
                             to={`/user/${isAuthenticated().user._id}`}
@@ -53,10 +49,32 @@ const Navbar = ({history}) => (
                     </li>
                     </div>
                 </>
+            ) : (
+                <>
+                    <li className="nav-item">
+                    <NavLink 
+                        to="/signin"
+                        className="nav-link"
+                        activeClassName='is-active'
+                    >
+                        Login
+                    </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink 
+                            to="/signup"
+                            className="nav-link"
+                            activeClassName='is-active'
+                        >
+                            Sign Up
+                        </NavLink>
+                    </li>
+                </>
             )}
         </ul>
+    
     </div>
-    </>
+    </nav>
 )
 
 export default withRouter(Navbar);

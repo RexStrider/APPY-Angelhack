@@ -4,14 +4,19 @@ import PrivateRoute from './components/auth/PrivateRoute';
 import './App.css';
 
 // Import Components
-import Navbar from './components/navbar/navbar';
+import Navbar from './components/navbar/Navbar';
+import Home from './components/home/Home';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
+import FModal from'./components/home/FModal';
 import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
 import ResetPassword from "./components/user/PasswordReset/ResetPassword";
 import Profile from './components/user/UserProfile/UserProfile';
 import EditProfile from './components/user/UserActions/EditUser';
 import Geolocate from './components/algorithms/Geolocate';
+import Users from '../src/components/matching/matching'  ;
+
+
 
 function App() {
   return (
@@ -19,10 +24,16 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/fmodal" component={FModal} />
           <Route exact path="/signin" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/forgot-password" component={ForgotPassword} />
+
+
+          <Route exact path="/matching" component={Users} />
           <Route
+
                   exact
                   path="/reset-password/:resetPasswordToken"
                   component={ResetPassword}
