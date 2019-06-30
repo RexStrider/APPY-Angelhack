@@ -4,6 +4,7 @@ import { signin, authenticate } from "../auth";
 // import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 // import './Login.css';
 
+<<<<<<< HEAD
 class Signin extends Component {
     constructor() {
         super();
@@ -42,6 +43,28 @@ class Signin extends Component {
             }
         });
     };
+=======
+import { signin } from '../auth';
+
+class Login extends Component {
+
+    state = {
+        email: '',
+        password: ''
+    }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    }
+
+    clickHandler = event => {
+        event.preventDefault();
+        // console.log('click handled');
+
+        signin(this.state);
+    }
+>>>>>>> 18a24e2febe9f2ee7f13706bff34fa86611713a5
 
     signinForm = (email, password, recaptcha) => (
         <form>
@@ -86,6 +109,7 @@ class Signin extends Component {
         }
 
         return (
+<<<<<<< HEAD
             <div className="container signin-page auth-page">
                 <h2 className="signin-title">Log In Your Account</h2>
                 <br />
@@ -95,6 +119,47 @@ class Signin extends Component {
                 >
                     {error}
                 </div>
+=======
+            <Container className='login'>
+                <Form>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            name="email"
+                            value={this.state.username}
+                            onChange={this.handleInputChange}
+                            placeholder="Enter email" />
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                        type="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        placeholder="Enter password" />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicChecbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                    <Button
+                    variant="primary"
+                    type="submit"
+                    onClick={this.clickHandler}>
+                        Submit
+                    </Button>
+                </Form>
+
+
+            </Container>
+        )
+    }
+>>>>>>> 18a24e2febe9f2ee7f13706bff34fa86611713a5
 
                 {loading ? (
                     <div className="jumbotron text-center">
