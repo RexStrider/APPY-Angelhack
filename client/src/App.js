@@ -8,7 +8,7 @@ import Navbar from './components/navbar/navbar';
 import Home from './components/home/Home';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
-import Comnav from'./components/home/Comnav';
+import FModal from'./components/home/FModal';
 import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
 import ResetPassword from "./components/user/PasswordReset/ResetPassword";
 import Profile from './components/user/UserProfile/UserProfile';
