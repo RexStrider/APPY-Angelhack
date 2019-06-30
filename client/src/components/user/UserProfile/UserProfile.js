@@ -12,11 +12,28 @@ class Profile extends Component {
         this.state = {
             redirectToSignin: false,
             error: "",
+
+            // user object
+            user: {
+                name: '',
+                email: '',
+                location: '',
+                choice1: '',
+                choice2: '',
+                choice3: '',
+                about: '',
+                gender: '',
+                online: false,
+                _v: '',
+                _id: '',
+                created: ''
+            }
         };
     }
 
     init = userId => {
         const token = isAuthenticated().token;
+        
         read(userId, token).then(data => {
             if (data.error) {
                 this.setState({ redirectToSignin: true });
@@ -30,6 +47,7 @@ class Profile extends Component {
     componentDidMount() {
         const userId = this.props.match.params.userId;
         this.init(userId);
+        this.setState({ online: true });
     }
 
     componentWillReceiveProps(props) {
@@ -48,11 +66,25 @@ class Profile extends Component {
         //           user._id
         //       }?${new Date().getTime()}`
         //     : DefaultProfile;
+<<<<<<< HEAD
         console.log(this.state.user);
         // console.log(this.state.user.location);
         // console.log(user.name);
+=======
+>>>>>>> 26b3855f8e14539046ad19877bef6ef91ae76111
 
-        return(
+        // console.log(this.state);
+        console.log(user);
+
+        // console.log(user.name);
+        // console.log(user.location);
+        // console.log(user.email);
+        // console.log(user.choice1);
+        // console.log(user.choice2);
+        // console.log(user.choice3);
+        // console.log(user.created);
+
+        return( 
             <h1>User page</h1>
         )
     }
