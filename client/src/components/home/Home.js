@@ -3,14 +3,14 @@ import image from '../../assets/images/one.jpeg';
 import image1 from '../../assets/images/two.png';
 import image2 from '../../assets/images/three.png';
 import {Carousel} from 'react-bootstrap';
-import FModal from './FModal';
+
 
 
 class Home extends Component {
     render() {
         return(
             <>
-            <FModal />
+           
             <Carousel>
                 <Carousel.Item>
                 <img

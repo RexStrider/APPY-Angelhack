@@ -5,6 +5,7 @@ import './App.css';
 
 // Import Components
 import Navbar from './components/navbar/Navbar';
+import Home from './components/home/Home';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
 import FModal from'./components/home/FModal';
@@ -14,6 +15,7 @@ import Profile from './components/user/UserProfile/UserProfile';
 import EditProfile from './components/user/UserActions/EditUser';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +23,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/fmodal" component={FModal} />
           <Route exact path="/signin" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/forgot-password" component={ForgotPassword} />

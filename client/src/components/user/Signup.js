@@ -75,9 +75,11 @@ class Signup extends Component {
             <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="password" />
           </Form.Group>
 
-          <Form.Group>
-            <Form.Label>Basketball</Form.Label>
+       
+           <Form.Group >
+            <Form.Label> What do you think about Basketball?</Form.Label>
             <div key='default-radio' className='mb-3'>
+            <Col sm={12}>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -110,12 +112,16 @@ class Signup extends Component {
                 onClick={this.handleInputChange}
                 value='NBA all the way'
               />
+              </Col>
             </div>
           </Form.Group>
 
+         
+          
           <Form.Group>
-            <Form.Label>Music</Form.Label>
+            <Form.Label>What is your view on Music?</Form.Label>
             <div key='default-radio' className='mb-3'>
+            <Col sm={12}>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -148,12 +154,14 @@ class Signup extends Component {
                 onClick={this.handleInputChange}
                 value='Jamming out is the shit'
               />
+              </Col>
             </div>
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Hackathon</Form.Label>
+            <Form.Label>How about Hackathon?</Form.Label>
             <div key='default-radio' className='mb-3'>
+            <Col sm={12}>
               <Form.Check 
                 type='radio'
                 id={`default-radio-1`}
@@ -186,6 +194,7 @@ class Signup extends Component {
                 onClick={this.handleInputChange}
                 value='Gotta work on my catching'
               />
+              </Col>
             </div>
           </Form.Group>
 
