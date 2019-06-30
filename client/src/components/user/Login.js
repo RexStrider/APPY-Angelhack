@@ -1,72 +1,136 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Link, Redirect } from "react-router-dom";
+import { signin, authenticate } from "../auth";
+// import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Login.css';
 
-import { signin } from '../auth';
-
-class Login extends Component {
-
-    state = {
-        email: '',
-        password: ''
+class Signin extends Component {
+    constructor() {
+        super();
+        this.state = {
+            email: "",
+            password: "",
+            error: "",
+            redirectToReferer: false,
+            loading: false,
+        };
     }
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value });
-    }
+    handleChange = name => event => {
+        this.setState({ error: "" });
+        this.setState({ [name]: event.target.value });
+    };
 
-    clickHandler = event => {
+    // form submitting
+    clickSubmit = event => {
         event.preventDefault();
-        // console.log('click handled');
+        this.setState({ loading: true });
+        const { email, password } = this.state;
+        const user = {
+            email,
+            password
+        };
+        // console.log(user);
+        signin(user).then(data => {
+            if (data.error) {
+                this.setState({ error: data.error, loading: false });
+            } else {
+                // authenticate
+                authenticate(data, () => {
+                    this.setState({ redirectToReferer: true });
+                });
+            }
+        });
+    };
 
-        signin(this.state);
-    }
-
+    signinForm = (email, password, recaptcha) => (
+        <form>
+            <div className="form-group">
+                <label>Email</label>
+                <input
+                    onChange={this.handleChange("email")}
+                    type="email"
+                    className="form-control"
+                    value={email}
+                />
+            </div>
+            <div className="form-group">
+                <label>Password</label>
+                <input
+                    onChange={this.handleChange("password")}
+                    type="password"
+                    className="form-control"
+                    value={password}
+                />
+            </div>
+            <button
+                onClick={this.clickSubmit}
+                className="button button-main"
+            >
+                Sign in
+            </button>
+        </form>
+    );
 
     render() {
-        console.log(this.state);
+        const {
+            email,
+            password,
+            error,
+            redirectToReferer,
+            loading,
+        } = this.state;
+
+        if (redirectToReferer) {
+            return <Redirect to="/" />;
+        }
+
         return (
-            <Container className='login'>
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            type="email"
-                            name="email"
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+            <div className="container signin-page auth-page">
+                <h2 className="signin-title">Sign In</h2>
+                <br />
+                <div
+                    className="alert alert-danger"
+                    style={{ display: error ? "" : "none" }}
+                >
+                    {error}
+                </div>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                        type="password"
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        placeholder="Enter password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicChecbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button
-                    variant="primary"
-                    type="submit"
-                    onClick={this.clickHandler}>
-                        Submit
-                    </Button>
-                </Form>
+                {loading ? (
+                    <div className="jumbotron text-center">
+                        <h2>Loading...</h2>
+                    </div>
+                ) : (
+                    ""
+                )}
 
+                {this.signinForm(email, password)}
 
-            </Container>
-        )
+                <div style={{ marginTop: '40px'}}>
+                    <p>
+                        Don't have an account?
+                        <Link
+                            to="/signup"
+                            className="btn-link"
+                        >
+                            {" "}
+                            Sign Up
+                        </Link>
+                    </p>
+                    <p>
+                        Forgot your account?
+                        <Link
+                            to="/forgot-password"
+                            className="btn-link"
+                        >
+                            {" "}
+                            Reset Password
+                        </Link>
+                    </p>
+                </div>
+                <br />           
+            </div>
+        );
     }
-
 }
-
-export default Login;
+export default Signin;
