@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import { read } from "../UserApi/apiUser";
 import DefaultProfile from "../../../assets/images/avatar.png";
 import DeleteUser from "../UserActions/DeleteUser";
-
+import {Button} from 'react-bootstrap'
 
 class Profile extends Component {
     constructor() {
@@ -83,9 +83,9 @@ class Profile extends Component {
 
                         <div className="col-md-8">
                             <div className="lead mt-2" style={{ letterSpacing: '2px'}}>
-                                <p>Hello <span className="page-brand">{user.name}</span></p>
-                                <p>Email: {user.email}</p>
-                                <p>{`Joined ${new Date(
+                                <p><b>Hello!</b> <br></br><span className="page-brand">{user.name}</span></p>
+                                <p><b>Email:</b> <br></br>{user.email}</p>
+                                <p><b>Joined</b><br></br>{`${new Date(
                                     user.created
                                 ).toDateString()}`}</p>
                             </div>
@@ -94,9 +94,11 @@ class Profile extends Component {
                             isAuthenticated().user._id === user._id ? (
                                 <div className="d-inline-block">
                                     <Link to={`/user/edit/${user._id}`}>
-                                        <button className="button button-green button-profile">
+                                        <Button variant="primary" className="button button-edit">
                                             Edit Profile
-                                        </button>
+                                        </Button>
+                                        <br></br>
+                                        <br></br>
                                     </Link>
                                     <DeleteUser userId={user._id} />
                                 </div>
