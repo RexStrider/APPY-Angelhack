@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+
+import { signup } from '../auth';
+
 class Signup extends Component {
   constructor(props) {
     super(props)
     this.state = {
       name: '',
-      city: '',
       email: '',
       password: '',
       gender: '',
@@ -25,8 +27,23 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
 
-  clickHandler = () => {
+  clickHandler = event => {
+    event.preventDefault();
     
+    const user = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      gender: this.state.gender,
+      about: this.state.about,
+      location: this.state.location,
+      choice1: this.state.choice1,
+      choice2: this.state.choice2,
+      choice3: this.state.choice3
+    }
+
+    signup(user);
+
   }
 
   render() {
@@ -41,8 +58,8 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label>City</Form.Label>
-            <Form.Control name="city" value={this.state.city} onChange={this.handleInputChange} placeholder="Enter city" />
+            <Form.Label>Location</Form.Label>
+            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="Enter location" />
           </Form.Group>
 
           <Form.Group as={Col}>
@@ -54,11 +71,6 @@ class Signup extends Component {
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
             <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="password" />
-          </Form.Group>
-
-          <Form.Group as={Col}>
-            <Form.Label>Location</Form.Label>
-            <Form.Control name="location" value={this.state.location} onChange={this.handleInputChange} placeholder="Enter location" />
           </Form.Group>
 
           <Form.Group>
