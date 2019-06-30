@@ -1,23 +1,40 @@
 import React from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
-
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/auth/PrivateRoute';
 import './App.css';
 
 // Import Components
 import Navbar from './components/navbar/navbar';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
+import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
+import ResetPassword from "./components/user/PasswordReset/ResetPassword";
+import Profile from './components/user/UserProfile/UserProfile';
+import EditProfile from './components/user/UserActions/EditUser';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <section id='section'>
-          <Route exact path="/" component={Signup} />
-          <Route exact path="/login" component={Login} />
-        </section>
+        <Navbar />
+        <Switch>
+          <Route exact path="/signin" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/forgot-password" component={ForgotPassword} />
+          <Route
+                  exact
+                  path="/reset-password/:resetPasswordToken"
+                  component={ResetPassword}
+            />
+          {/* Private Route */}
+          <PrivateRoute exact path="/user/:userId" component={Profile} />
+          <PrivateRoute
+                    exact
+                    path="/user/edit/:userId"
+                    component={EditProfile}
+                />
+        </Switch>
       </BrowserRouter>
     </div>
   );
