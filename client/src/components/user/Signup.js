@@ -2,12 +2,7 @@ import React,{ Component} from 'react';
 import { Container,Row, Col} from 'react-bootstrap'
 class Singup extends Component{
      state = {
-      Name: '',
-      City: '',
-      Email: '',
-      Password:'',
-      Hometown:''
-
+        
      }
 
      handleInputChange = event =>{

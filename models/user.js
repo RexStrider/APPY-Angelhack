@@ -20,6 +20,17 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     location: {
+        type: String
+    },
+    choice1: {
+        type: String,
+        required: true
+    },
+    choice2: {
+        type: String,
+        required: true
+    },
+    choice3: {
         type: String,
         required: true
     },
@@ -40,6 +51,10 @@ const userSchema = new mongoose.Schema({
     resetPasswordLink: {
         data: String,
         default: ""
+    },
+    online: {
+        data: Boolean,
+        default: false
     }
 });
 

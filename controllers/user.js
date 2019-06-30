@@ -19,6 +19,20 @@ exports.userById = (req, res, next, id) => {
 };
 
 
+// Get All Users
+exports.allUsers = (req, res) => {
+    User.find((err, users) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            });
+        }
+        res.json(users);
+    }).select("name email updated created role");
+};
+
+
+
 // Check Authorization
 exports.hasAuthorization = (req, res, next) => {
     let sameUser = req.profile && req.auth && req.profile._id == req.auth._id;
