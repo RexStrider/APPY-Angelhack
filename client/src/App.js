@@ -4,7 +4,7 @@ import PrivateRoute from './components/auth/PrivateRoute';
 import './App.css';
 
 // Import Components
-import Navbar from './components/navbar/navbar';
+import Navbar from './components/navbar/Navbar';
 import Login from './components/user/Login';
 import Signup from'./components/user/Signup';
 import ForgotPassword from "./components/user/PasswordReset/ForgotPassword";
