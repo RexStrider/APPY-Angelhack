@@ -12,11 +12,27 @@ class Profile extends Component {
         this.state = {
             redirectToSignin: false,
             error: "",
+
+            // user object
+            user: {
+                name: '',
+                email: '',
+                location: '',
+                choice1: '',
+                choice2: '',
+                choice3: '',
+                about: '',
+                gender: '',
+                _v: '',
+                _id: '',
+                created: ''
+            }
         };
     }
 
     init = userId => {
         const token = isAuthenticated().token;
+        
         read(userId, token).then(data => {
             if (data.error) {
                 this.setState({ redirectToSignin: true });
@@ -48,11 +64,19 @@ class Profile extends Component {
         //           user._id
         //       }?${new Date().getTime()}`
         //     : DefaultProfile;
-        console.log(this.state.user);
-        console.log(this.state.user.location);
-        console.log(user.name);
 
-        return(
+        // console.log(this.state);
+        console.log(user);
+
+        // console.log(user.name);
+        // console.log(user.location);
+        // console.log(user.email);
+        // console.log(user.choice1);
+        // console.log(user.choice2);
+        // console.log(user.choice3);
+        // console.log(user.created);
+
+        return( 
             <h1>User page</h1>
         )
     }

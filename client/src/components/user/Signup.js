@@ -75,6 +75,33 @@ class Signup extends Component {
             <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="password" />
           </Form.Group>
 
+          <Form.Group as={Col}>
+          <Form.Label>About</Form.Label>
+            <Form.Control name="about" as="textarea" rows="3" type="text" value={this.state.about} onChange={this.handleInputChange} placeholder="tell us about yourself" />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Gender</Form.Label>
+            <div key='default-radio' className='mb-3'>
+              <Form.Check 
+                type='radio'
+                id={`default-radio-1`}
+                label='Male'
+                name="gender"
+                onClick={this.handleInputChange}
+                value='male'
+              />
+              <Form.Check 
+                type='radio'
+                id={`default-radio-2`}
+                label='Female'
+                name="gender"
+                onClick={this.handleInputChange}
+                value='female'
+              />
+            </div>
+          </Form.Group>
+
           <Form.Group>
             <Form.Label>Basketball</Form.Label>
             <div key='default-radio' className='mb-3'>
