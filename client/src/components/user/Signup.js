@@ -26,7 +26,7 @@ class Signup extends Component {
   };
 
   clickHandler = () => {
-    console.log("click handled");
+    
   }
 
   render() {
