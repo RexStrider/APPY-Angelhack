@@ -50,7 +50,7 @@ class Signin extends Component {
     signinForm = (email, password) => (
         <form>
             <div className="form-group">
-                <label>Email</label>
+                <label className="form-label">Email</label>
                 <input
                     onChange={this.handleChange("email")}
                     type="email"
@@ -93,6 +93,7 @@ class Signin extends Component {
         return (
             <div className="container signin-page auth-page">
                 <h2 className="signin-title">Sign In</h2>
+                <small style={{ letterSpacing: '.3rem'}}>*Sign in your account today and connect with other people</small>
                 <br />
                 <div
                     className="alert alert-danger"
