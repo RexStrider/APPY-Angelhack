@@ -1,94 +1,114 @@
-import React,{ Component} from 'react';
-import { Container,Row, Col} from 'react-bootstrap'
-class Singup extends Component{
-     state = {
-        
-     }
-
-     handleInputChange = event =>{
-       const{id ,value} = event.target;
-       this.setState({ [id]: value});
-
-
-     };
-
-     clickHandler =() =>{
-      console.log("click handdled");
-     }
-
-    render(){
-      console.log(this.state);
-      return (
-        <Container className="Singup">
-        <Row>
-          <Col>
-          <label> Name</label>
-         <input 
-              id="Name"
-              value={this.state.Name}
-              onChange= {this.handleInputChange} />
-              </Col>
-        </Row>
-         
-         <Row>
-         <Col>
-         <label> City</label>
-         <input 
-              id="City"
-              value={this.state.City}
-              onChange= {this.handleInputChange}/>
-         </Col>
-         </Row>
-        
-         <Row>
-           <Col>
-           <label>Email</label>
-         <input 
-              id="Email"
-              value={this.state.Email}
-              onChange= {this.handleInputChange}/>
-           </Col>
-
-         </Row>
-
-         <Row>
-          <Col>
-          <label>Password</label>
-         <input 
-              id="Password"
-              value={this.state.Password}
-              onChange= {this.handleInputChange} />
-              </Col>
-        </Row>
-         
-         <Row>
-           <Col>
-           <label>Hometown</label>
-         <input 
-              id="Hometown"
-              value={this.state.Hometown}
-              onChange= {this.handleInputChange}/>
-           </Col>
-         </Row>
-        
-        <Row>
-          <Col>
-          <button
-           onClick = {this.clickHandler}>
-           Submit
-          </button>
-          </Col>
-        </Row>
-         
-  
-  
-        
-        </Container>
-      );
-    }
+import React, { Component } from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+class Signup extends Component {
+  state = {
+    Name: '',
+    City: '',
+    Email: '',
+    Password: '',
+    Hometown: '',
+    Basketball: '',
+    Music: '',
+    Hackathon: ''
   }
-  
-  
-  
-  export default Singup;
-  
+
+  handleInputChange = event => {
+    const { id, value } = event.target;
+    this.setState({ [id]: value });
+
+
+  };
+
+  clickHandler = () => {
+    console.log("click handdled");
+  }
+
+  render() {
+    console.log(this.state);
+    return (
+      <Container className="Signup">
+        <Form>
+
+          <Form.Group as={Col}>
+            <Form.Label >Name</Form.Label>
+            <Form.Control id="Name" value={this.state.Name} onChange={this.handleInputChange} placeholder="Enter Name" />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Label>City</Form.Label>
+            <Form.Control id="City" value={this.state.City} onChange={this.handleInputChange} placeholder="Enter City" />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Label>Email</Form.Label>
+            <Form.Control id="Email" value={this.state.Email} type="email" onChange={this.handleInputChange} placeholder="Enter email" />
+          </Form.Group>
+
+
+          <Form.Group as={Col}>
+            <Form.Label>Password</Form.Label>
+            <Form.Control id="Password" type="password" value={this.state.Password} onChange={this.handleInputChange} placeholder="Password" />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Label>Hometown</Form.Label>
+            <Form.Control id="Hometown" value={this.state.Hometown} onChange={this.handleInputChange} placeholder="Enter Hometown" />
+          </Form.Group>
+
+
+          <Form.Group as={Col}>
+            <Form.Label>How do you feel about Basketball?</Form.Label>
+              <div className="choice-group">
+                <p>
+                <input 
+                  type="radio" 
+                  name="basket-choice-1" 
+                  value="1" /> My eyes are glued to the game on TV
+                </p>
+                <p>
+                <input 
+                  type="radio" 
+                  name="basket-choice-1" 
+                  value="2" /> My eyes are glued to the game on TV
+                </p>
+                <p>
+                <input 
+                  type="radio" 
+                  name="basket-choice-1" 
+                  value="3" /> My eyes are glued to the game on TV
+                </p>
+                <p>
+                <input 
+                  type="radio" 
+                  name="basket-choice-1" 
+                  value="4" /> My eyes are glued to the game on TV
+                </p>
+              </div>
+          </Form.Group>
+
+          <Form.Group as={Col}>
+
+            <Form.Label>Tell us about your favorite type of music.</Form.Label>
+            <Form.Control type='text' id="Music" value={this.state.Music} onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group as={Col}>
+
+            <Form.Label> What are your thoughts on Hackathons? </Form.Label>
+            <Form.Control type='text' id="Hackathon" value={this.state.Hackathon} onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Button variant="primary" type="submit" onClick={this.clickHandler}>
+            Submit
+  </Button>
+
+        </Form>
+
+      </Container>
+    );
+  }
+}
+
+
+
+export default Signup;

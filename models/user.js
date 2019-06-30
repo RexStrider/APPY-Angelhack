@@ -55,6 +55,14 @@ const userSchema = new mongoose.Schema({
     online: {
         data: Boolean,
         default: false
+    },
+    accepted: {
+        data: Boolean,
+        default: false
+    },
+    gender: {
+        data: Number,
+        default: 0
     }
 });
 
