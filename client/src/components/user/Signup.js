@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { Link } from "react-router-dom";
-=======
+import { Link } from 'react-router-dom';
 import { Container, Col, Form, Button } from 'react-bootstrap'
 
->>>>>>> dbcec5a3b835fbbfd673d34c35929184d661660d
 import { signup } from '../auth';
 
 class Signup extends Component {

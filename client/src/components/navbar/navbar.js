@@ -12,26 +12,9 @@ const Navbar = ({history}) => (
     </div>
     <div className="nav-bar">
         <ul className="nav nav-tabs bg-outline">
-            <li className="nav-item">
-                <NavLink 
-                    to="/signin"
-                    className="nav-link"
-                    activeClassName='is-active'
-                >
-                    Login
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink 
-                    to="/signup"
-                    className="nav-link"
-                    activeClassName='is-active'
-                >
-                    Sign Up
-                </NavLink>
-            </li>
+            
 
-            {isAuthenticated() && (
+            {isAuthenticated() ? (
                 <>
                 <div className="nav ml-auto">
                     <li className="nav-item">
@@ -52,6 +35,27 @@ const Navbar = ({history}) => (
                         </span>
                     </li>
                     </div>
+                </>
+            ) : (
+                <>
+                    <li className="nav-item">
+                    <NavLink 
+                        to="/signin"
+                        className="nav-link"
+                        activeClassName='is-active'
+                    >
+                        Login
+                    </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink 
+                            to="/signup"
+                            className="nav-link"
+                            activeClassName='is-active'
+                        >
+                            Sign Up
+                        </NavLink>
+                    </li>
                 </>
             )}
         </ul>
